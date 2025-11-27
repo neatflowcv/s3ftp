@@ -8,7 +8,7 @@ import (
 	"syscall"
 
 	ftpserver "github.com/fclairamb/ftpserverlib"
-	"github.com/neatflowcv/s3ftp/internal/ftp"
+	"github.com/neatflowcv/s3ftp/internal/pkg/driver/simple"
 )
 
 func version() string {
@@ -24,7 +24,7 @@ func main() {
 	log.Println("version", version())
 
 	// Create FTP driver
-	driver := ftp.NewDriver()
+	driver := simple.NewMainDriver()
 
 	// Create FTP server
 	server := ftpserver.NewFtpServer(driver)
