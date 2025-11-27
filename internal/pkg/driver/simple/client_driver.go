@@ -35,7 +35,7 @@ func (d *ClientDriver) Create(name string) (afero.File, error) { //nolint:iretur
 		return nil, fmt.Errorf("create file: %w", err)
 	}
 
-	return file, nil
+	return newFile(file), nil
 }
 
 // Mkdir creates a directory.
@@ -67,7 +67,7 @@ func (d *ClientDriver) Open(name string) (afero.File, error) { //nolint:ireturn
 		return nil, fmt.Errorf("open file: %w", err)
 	}
 
-	return file, nil
+	return newFile(file), nil
 }
 
 // OpenFile opens a file with the specified flag and mode.
@@ -79,7 +79,7 @@ func (d *ClientDriver) OpenFile(name string, flag int, perm os.FileMode) (afero.
 		return nil, fmt.Errorf("openfile: %w", err)
 	}
 
-	return file, nil
+	return newFile(file), nil
 }
 
 // Remove removes a file or directory.
