@@ -57,18 +57,18 @@ func (d *MainDriver) GetSettings() (*ftpserver.Settings, error) {
 }
 
 // ClientConnected is called when a client connects.
-func (d *MainDriver) ClientConnected(cc ftpserver.ClientContext) (string, error) {
-	return fmt.Sprintf("220 Welcome to s3ftp server (ID: %d)", cc.ID()), nil
+func (d *MainDriver) ClientConnected(clientCtx ftpserver.ClientContext) (string, error) {
+	return fmt.Sprintf("220 Welcome to s3ftp server (ID: %d)", clientCtx.ID()), nil
 }
 
 // ClientDisconnected is called when a client disconnects.
-func (d *MainDriver) ClientDisconnected(cc ftpserver.ClientContext) {
+func (d *MainDriver) ClientDisconnected(ftpserver.ClientContext) {
 	// Cleanup if needed
 }
 
 // AuthUser authenticates the user and returns a ClientDriver.
-func (d *MainDriver) AuthUser( //nolint:ireturn
-	cc ftpserver.ClientContext,
+func (d *MainDriver) AuthUser(
+	_ ftpserver.ClientContext,
 	user, pass string,
 ) (ftpserver.ClientDriver, error) {
 	// Simple hardcoded authentication for testing

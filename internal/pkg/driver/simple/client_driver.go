@@ -27,7 +27,7 @@ func (d *ClientDriver) Name() string {
 }
 
 // Create creates a file.
-func (d *ClientDriver) Create(name string) (afero.File, error) { //nolint:ireturn
+func (d *ClientDriver) Create(name string) (afero.File, error) {
 	log.Println("Create", name)
 
 	file, err := d.fs.Create(name)
@@ -59,7 +59,7 @@ func (d *ClientDriver) MkdirAll(path string, perm os.FileMode) error {
 }
 
 // Open opens a file.
-func (d *ClientDriver) Open(name string) (afero.File, error) { //nolint:ireturn
+func (d *ClientDriver) Open(name string) (afero.File, error) {
 	log.Println("Open", name)
 
 	file, err := d.fs.Open(name)
@@ -71,7 +71,7 @@ func (d *ClientDriver) Open(name string) (afero.File, error) { //nolint:ireturn
 }
 
 // OpenFile opens a file with the specified flag and mode.
-func (d *ClientDriver) OpenFile(name string, flag int, perm os.FileMode) (afero.File, error) { //nolint:ireturn
+func (d *ClientDriver) OpenFile(name string, flag int, perm os.FileMode) (afero.File, error) {
 	log.Println("OpenFile", name, flag, perm)
 
 	file, err := d.fs.OpenFile(name, flag, perm)

@@ -1,3 +1,4 @@
 /vendor/
 /s3ftp
 /.vscode/launch.json
+.env
